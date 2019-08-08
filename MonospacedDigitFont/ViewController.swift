@@ -9,12 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet private weak var labelVariable: UILabel!
+    @IBOutlet private weak var labelFixed: UILabel!
+    
+    @IBAction private func sliderValueChanged(_ sender: UISlider) {
+        [labelFixed, labelVariable].forEach({
+            $0?.text = "\(Int(sender.value))"
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        labelFixed.font = .monospacedDigitSystemFont(ofSize: labelFixed.font.pointSize, weight: .regular)
     }
-
-
 }
 
